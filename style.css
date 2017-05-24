@@ -1,0 +1,28 @@
+* {
+    font-family: arial;
+}
+#warning{
+    color: red;
+}
+
+body {
+    padding-top:  50px;
+    text-align: center;
+}
+
+.starter-template {
+    padding: 40px 15px;
+}
+
+form {
+    width: 400px;
+    margin: auto;
+}
+#gender {
+    border: 4px groove grey;
+    margin: 2px;
+}
+
+tr {
+    text-align: left;
+}
