@@ -11,15 +11,7 @@ $sth = $pdo->query('SELECT students.name, students.surname, students.gender, fac
 FROM students JOIN faculty ON students.faculty_id = faculty.id');
 ?>
 
-<!DOCTYPE html>
-<head>
-    <meta charset="utf-8">
-    <title>Форма</title>
-    <link rel="stylesheet" href="style.css" type="text/css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+
 <body>
 <table class="table table-striped books-list-table">
     <thead>
