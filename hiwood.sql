@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 25 2017 г., 01:46
+-- Время создания: Май 25 2017 г., 23:14
 -- Версия сервера: 10.1.21-MariaDB
 -- Версия PHP: 5.6.30
 
@@ -91,7 +91,7 @@ INSERT INTO `schedule` (`id`, `Day`, `subject`, `id_teachers`, `id_faculty`) VAL
 --
 
 CREATE TABLE `students` (
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `surname` varchar(50) NOT NULL,
   `gender` varchar(10) NOT NULL,
@@ -106,13 +106,22 @@ INSERT INTO `students` (`id`, `name`, `surname`, `gender`, `faculty_id`) VALUES
 (65, 'Artem', 'Bor', 'male', 3),
 (66, 'Artem', 'Asdasda', 'male', 1),
 (67, 'Artem', 'Asdasda', 'male', 1),
-(68, 'Artem', 'Asdasda', 'male', 1),
-(69, 'Artem', 'Asdasda', 'male', 1),
-(70, 'Artem', 'Asdasda', 'male', 1),
-(71, 'Artem', 'Asdasda', 'male', 1),
-(72, 'Artem', 'Asdasda', 'male', 1),
-(73, 'Artem', 'Asdasda', 'male', 1),
-(74, 'Sfd', 'Dfs', 'female', 2);
+(74, 'Sfd', 'Dfs', 'female', 2),
+(75, '32', 'Sa', 'female', 2),
+(76, 'Artem', 'Rembo', 'male', 3),
+(77, 'Alex', 'Smith', 'male', 1),
+(78, 'Alex', 'Rembo', 'male', 1),
+(79, 'Alex', 'Rembo', 'male', 1),
+(80, 'Alex', 'Smith', 'male', 1),
+(81, 'Alex', 'Rembo', 'male', 1),
+(82, 'Alex', 'Rembo', 'male', 1),
+(83, 'Alex', 'Rembo', 'male', 1),
+(85, 'Artem', 'Sa', 'male', 1),
+(86, 'Artem', 'Sa', 'male', 1),
+(88, 'Asdss sas', 'Tbtgb', 'male', 1),
+(89, 'Fggfb', 'Fgb', 'male', 1),
+(90, 'Artem', 'Qwe', 'male', 3),
+(91, 'Artem', 'Sa', 'male', 1);
 
 -- --------------------------------------------------------
 
@@ -198,7 +207,7 @@ ALTER TABLE `schedule`
 -- AUTO_INCREMENT для таблицы `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 --
 -- AUTO_INCREMENT для таблицы `teachers`
 --
@@ -212,7 +221,8 @@ ALTER TABLE `teachers`
 -- Ограничения внешнего ключа таблицы `details`
 --
 ALTER TABLE `details`
-  ADD CONSTRAINT `details_ibfk_1` FOREIGN KEY (`id_faculty`) REFERENCES `faculty` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `details_ibfk_1` FOREIGN KEY (`id_faculty`) REFERENCES `faculty` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `details_ibfk_2` FOREIGN KEY (`id_students`) REFERENCES `students` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `schedule`
@@ -220,12 +230,6 @@ ALTER TABLE `details`
 ALTER TABLE `schedule`
   ADD CONSTRAINT `schedule_ibfk_1` FOREIGN KEY (`id_teachers`) REFERENCES `teachers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `schedule_ibfk_2` FOREIGN KEY (`id_faculty`) REFERENCES `faculty` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ограничения внешнего ключа таблицы `students`
---
-ALTER TABLE `students`
-  ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
